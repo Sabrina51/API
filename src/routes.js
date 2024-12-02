@@ -1,8 +1,8 @@
-import express from 'express'
-import controller from "../src/controller/index.js"
+import express from "express";
+import controller from "../src/controller/index.js";
 
-const router = express.Router()
+const router = express.Router();
 
-router.get('/information', controller.information);
+router.get("/foods", controller.foods);
 
-export default router
+export default router;
