@@ -7,4 +7,10 @@ async function foods(req, res) {
   res.status(200).json(response);
 }
 
-export default { foods };
+async function exercises(req, res) {
+  let db = await dbConfig();
+  let response = await model.getExercises(db);
+  res.status(200).json(response);
+}
+
+export default { foods, exercises };

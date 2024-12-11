@@ -1,18 +1,125 @@
 async function getFoods(dbConfig) {
   try {
-    const result = dbConfig
-      .postAllDocs({
-        db: "healthy-weight-db",
-        includeDocs: true,
+    const animalSourceFoods = await dbConfig
+      .postFind({
+        db: "forma-saudavel-db",
+        selector: {
+          id_categoria: {
+            $or: [
+              {
+                $eq: "5",
+              },
+              {
+                $eq: "9",
+              },
+              {
+                $eq: "7",
+              },
+              {
+                $eq: "6",
+              },
+            ],
+          },
+        },
       })
       .then((response) => {
-        return response.result.rows;
+        return response.result.docs;
       });
-    return result;
+
+    const vegetableSourceFoods = await dbConfig
+      .postFind({
+        db: "forma-saudavel-db",
+        selector: {
+          id_categoria: {
+            $or: [
+              {
+                $eq: "11",
+              },
+              {
+                $eq: "1",
+              },
+              {
+                $eq: "4",
+              },
+              {
+                $eq: "2",
+              },
+              {
+                $eq: "10",
+              },
+              {
+                $eq: "3",
+              },
+            ],
+          },
+        },
+      })
+      .then((response) => {
+        return response.result.docs;
+      });
+
+    let animalAux = [];
+    animalSourceFoods.forEach((element) => {
+      animalAux.push(element.alimentos);
+    });
+
+    let vegetableAux = [];
+    vegetableSourceFoods.forEach((element) => {
+      vegetableAux.push(element.alimentos);
+    });
+
+    return {
+      aninal: animalAux.flat(),
+      vegetable: vegetableAux.flat(),
+    };
   } catch (error) {
     console.log({ error });
     return { error };
   }
 }
 
-export default { getFoods };
+async function getExercises(dbConfig) {
+  try {
+    const outdoorSourceEx = await dbConfig
+      .postFind({
+        db: "forma-saudavel-db",
+        selector: {
+          id_categoria: "100",
+        },
+      })
+      .then((response) => {
+        return response.result.docs;
+      });
+
+    const indoorSourceEx = await dbConfig
+      .postFind({
+        db: "forma-saudavel-db",
+        selector: {
+          id_categoria: "101",
+        },
+      })
+      .then((response) => {
+        return response.result.docs;
+      });
+
+    let outdoorAux = [];
+    outdoorSourceEx.forEach((element) => {
+      outdoorAux.push(element.exercicios);
+    });
+
+    let indoorAux = [];
+    indoorSourceEx.forEach((element) => {
+      indoorAux.push(element.exercicios);
+    });
+
+    return {
+      outdoor: outdoorAux.flat(),
+      indoor: indoorAux.flat(),
+    };
+  } catch (error) {
+    console.log({ error });
+    return { error };
+  }
+}
+
+export default { getFoods, getExercises };

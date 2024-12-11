@@ -3,6 +3,7 @@ import controller from "../src/controller/index.js";
 
 const router = express.Router();
 
-router.get("/foods", controller.foods);
+router.post("/foods", controller.foods);
+router.post("/exercises", controller.exercises);
 
 export default router;
