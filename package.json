@@ -16,8 +16,7 @@
     "prettier": "3.1.0"
   },
   "dependencies": {
-    "@ibm-cloud/cloudant": "^0.9.1",
-    "express": "^4.18.2",
-    "request": "^2.88.2"
+    "@ibm-cloud/cloudant": "^0.12.1",
+    "express": "^4.18.2"
   }
 }
