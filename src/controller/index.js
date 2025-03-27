@@ -3,7 +3,6 @@ import model from "../model/index.js";
 
 async function foods(req, res) {
   const senhaFatec = "B4GW784kn12lpaPtPkL02F_KPV6F";
-  //const testFatec;
 
   function sum(a, b) {
     return a + b;
