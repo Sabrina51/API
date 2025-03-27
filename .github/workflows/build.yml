@@ -6,11 +6,13 @@ on:
       - main
   pull_request:
     types: [opened, synchronize, reopened]
-
+permissions:
+  pull-requests: write
+  checks: write
 jobs:
   build:
     name: Build and analyze
-    runs-on: windows-latest
+    runs-on: ubuntu-latest
 
     steps:
       - uses: actions/checkout@v4
