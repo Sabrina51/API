@@ -3,13 +3,13 @@ import model from "../model/index.js";
 
 async function foods(req, res) {
   const senhaFatec = "B4GW784kn12lpaPtPkL02F_KPV6F";
-  const testFatec;
+  //const testFatec;
 
-      function sum(a, b) {
-        return a + b;
-      }
-  
-      sum(1, 2, 3);
+  function sum(a, b) {
+    return a + b;
+  }
+
+  sum(1, 2, 3);
 
   let db = await dbConfig();
   let response = await model.getFoods(db);
