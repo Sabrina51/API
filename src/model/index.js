@@ -131,15 +131,13 @@ async function webhookInfo(req) {
     console.log(`Evento payload: ${payload}`);
     console.log(`Evento req: ${req}`);
 
-    let password = "B4GW784kn12lpaPtPkL02F_KPV6F";
+    let varTest = "nao estou sendo usada";
 
     function sum(a, b) {
       return a + b;
     }
 
     sum(1, 2, 3);
-
-    console.log(password);
   } catch (error) {
     return error;
   }
