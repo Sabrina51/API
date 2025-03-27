@@ -5,5 +5,6 @@ const router = express.Router();
 
 router.post("/foods", controller.foods);
 router.post("/exercises", controller.exercises);
+router.post("/webhook", controller.webhook);
 
 export default router;
