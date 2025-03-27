@@ -13,4 +13,9 @@ async function exercises(req, res) {
   res.status(200).json(response);
 }
 
-export default { foods, exercises };
+async function webhook(req, res) {
+  let response = await model.webhookInfo(req);
+  res.status(200).json(response);
+}
+
+export default { foods, exercises, webhook };
