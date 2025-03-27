@@ -130,14 +130,6 @@ async function webhookInfo(req) {
     console.log(`Evento recebido: ${event}`);
     console.log(`Evento payload: ${payload}`);
     console.log(`Evento req: ${req}`);
-
-    let varTest = "nao estou sendo usada";
-
-    function sum(a, b) {
-      return a + b;
-    }
-
-    sum(1, 2, 3);
   } catch (error) {
     return error;
   }
