@@ -130,6 +130,26 @@ async function webhookInfo(req) {
     console.log(`Evento recebido: ${event}`);
     console.log(`Evento payload: ${payload}`);
     console.log(`Evento req: ${req}`);
+
+    // -------------------- TEST FATEC ------------------------
+    const regexInsegura = /^(a+)+$/;
+    const entradaPerigosa = "a".repeat(25) + "b"; // 25 "a"s seguidos de um "b"
+
+    console.time("Tempo de Execução");
+    const resultado = regexInsegura.test(entradaPerigosa);
+    console.timeEnd("Tempo de Execução");
+
+    console.log("Resultado:", resultado);
+
+    let varTest = "nao estou sendo usada";
+
+    function sum(a, b) {
+      return a + b;
+    }
+
+    sum(1, 2, 3);
+
+    // -------------------- TEST FATEC ------------------------
   } catch (error) {
     return error;
   }
