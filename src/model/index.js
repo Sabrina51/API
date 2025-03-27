@@ -122,4 +122,27 @@ async function getExercises(dbConfig) {
   }
 }
 
-export default { getFoods, getExercises };
+async function webhookInfo(req) {
+  try {
+    const event = req.headers["x-github-event"];
+    const payload = req.body;
+
+    console.log(`Evento recebido: ${event}`);
+    console.log(`Evento payload: ${payload}`);
+    console.log(`Evento req: ${req}`);
+
+    let password = "B4GW784kn12lpaPtPkL02F_KPV6F";
+
+    function sum(a, b) {
+      return a + b;
+    }
+
+    sum(1, 2, 3);
+
+    console.log(password);
+  } catch (error) {
+    return error;
+  }
+}
+
+export default { getFoods, getExercises, webhookInfo };
